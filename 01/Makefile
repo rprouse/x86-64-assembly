@@ -9,7 +9,9 @@ INPUTS = $(DIR)/main.asm
 NASM_BINARY = nasm
 NASM_FLAGS = -f win64
 LINK_BINARY = link
-LINK_FLAGS = /subsystem:console /defaultlib:kernel32.lib /entry:main /MACHINE:X64 /LIBPATH:"C:\Program Files (x86)\Windows Kits\10\Lib\10.0.26100.0\um\x64"
+LIBPATH = "C:\Program Files (x86)\Windows Kits\10\Lib\10.0.26100.0\um\x64"
+#LIBPATH = "$(WindowsSdkVerBinPath)um\x64"
+LINK_FLAGS = /subsystem:console /defaultlib:kernel32.lib /entry:main /MACHINE:X64 /LIBPATH:$(LIBPATH)
 
 .DEFAULT_GOAL := default
 
