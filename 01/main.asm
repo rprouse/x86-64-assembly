@@ -8,5 +8,6 @@ extern ExitProcess
 section .text
 main:
     int3                    ; trigger a debugger breakpoint
+    sub rsp, 8 * 5          ; adjust stack ptr and allocate shadow space.
     xor rcx, rcx            ; exit code 0
     call ExitProcess        ; call Windows API to exit
